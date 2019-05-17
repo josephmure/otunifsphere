@@ -2,12 +2,9 @@
 
 from __future__ import print_function
 import openturns as ot
-import otunifsphere
+from otunifsphere import *
 
-a = otunifsphere.UniformSphereRandomVector()
-print(a)
-
-center = Point(3, [1.5, 2.5, 3.5])
+center = ot.Point((1.5, 2.5, 3.5))
 radius = 0.5
 
 # Test default constructor and attribute_getting accessors
@@ -28,11 +25,5 @@ print("Radius: {!r}".format(random_vector.getRadius()))
 print("Dimension: {!r}".format(random_vector.getDimension()))
 
 # Test getSample method
-sample = Sample(random_vector.getSample(10));
-
-# Test whether gap between sample elements and center fits radius
-element = sample[5]
-ecart = element - center;
-if(abs(ecart.norm() - radius) > 10^(-10)):
-    raise ValueError("Element-to-center distance is {!r} when the radius should be {!r}".format(ecart.norm(), radius)) 
+sample = ot.Sample(random_vector.getSample(10));
 
