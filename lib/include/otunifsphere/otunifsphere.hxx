@@ -22,7 +22,6 @@
 #ifndef OTUNIFSPHERE_OTUNIFSPHERE_HXX
 #define OTUNIFSPHERE_OTUNIFSPHERE_HXX
 
-#include "otunifsphere/UniformSphereRandomVectorImplementation.hxx"
 #include "otunifsphere/UniformSphereRandomVector.hxx"
 
 #endif // OTUNIFSPHERE_OTUNIFSPHERE_HXX
