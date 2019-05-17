@@ -1,6 +1,6 @@
 //                                               -*- C++ -*-
 /**
- *  @brief MyClassImplementation
+ *  @brief UniformSphereRandomVectorImplementation
  *
  *  Copyright 2005-2019 Airbus-EDF-IMACS-ONERA-Phimeca
  *
@@ -18,33 +18,33 @@
  *  along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#ifndef OTTEMPLATE_MYCLASSIMPLEMENTATION_HXX
-#define OTTEMPLATE_MYCLASSIMPLEMENTATION_HXX
+#ifndef OTUNIFSPHERE_UNIFORMSPHERERANDOMVECTORIMPLEMENTATION_HXX
+#define OTUNIFSPHERE_UNIFORMSPHERERANDOMVECTORIMPLEMENTATION_HXX
 
 #include <openturns/PersistentObject.hxx>
 #include <openturns/StorageManager.hxx>
 #include <openturns/Point.hxx>
-#include "ottemplate/OTTemplateprivate.hxx"
+#include "otunifsphere/otunifsphereprivate.hxx"
 
-namespace OTTEMPLATE
+namespace OTUNIFSPHERE
 {
 
 /**
- * @class MyClassImplementation
+ * @class UniformSphereRandomVectorImplementation
  *
- * MyClassImplementation is some myclass type to illustrate how to add some classes in OpenTURNS
+ * UniformSphereRandomVectorImplementation is some uniformsphererandomvector type to illustrate how to add some classes in OpenTURNS
  */
-class OTTEMPLATE_API MyClassImplementation
+class OTUNIFSPHERE_API UniformSphereRandomVectorImplementation
   : public OT::PersistentObject
 {
   CLASSNAME;
 
 public:
   /** Default constructor */
-  MyClassImplementation();
+  UniformSphereRandomVectorImplementation();
 
   /** Virtual constructor method */
-  MyClassImplementation * clone() const;
+  UniformSphereRandomVectorImplementation * clone() const;
 
   /** example of a func that return a point squared. **/
   OT::Point square(OT::Point& p) const;
@@ -60,8 +60,8 @@ public:
 
 private:
 
-}; /* class MyClassImplementation */
+}; /* class UniformSphereRandomVectorImplementation */
 
-} /* namespace OTTEMPLATE */
+} /* namespace OTUNIFSPHERE */
 
-#endif /* OTTEMPLATE_MYCLASSIMPLEMENTATION_HXX */
+#endif /* OTUNIFSPHERE_UNIFORMSPHERERANDOMVECTORIMPLEMENTATION_HXX */

@@ -1,8 +1,8 @@
 #                                               -*- cmake -*-
 #
-#  UseOTTemplate.cmake
+#  Useotunifsphere.cmake
 #
-#  Use OTTemplate in CMake files
+#  Use otunifsphere in CMake files
 #
 #  Copyright 2005-2019 Airbus-EDF-IMACS-ONERA-Phimeca
 #
@@ -21,7 +21,7 @@
 #
 #
 
-add_definitions     ( ${OTTEMPLATE_DEFINITIONS} )
-include_directories ( ${OTTEMPLATE_INCLUDE_DIRS} )
-link_directories    ( ${OTTEMPLATE_LIBRARY_DIRS} )
+add_definitions     ( ${OTUNIFSPHERE_DEFINITIONS} )
+include_directories ( ${OTUNIFSPHERE_INCLUDE_DIRS} )
+link_directories    ( ${OTUNIFSPHERE_LIBRARY_DIRS} )
 

@@ -1,0 +1,46 @@
+#                                               -*- cmake -*-
+#
+#  otunifsphereConfig.cmake(.in)
+#
+#  Find otunifsphere includes and libraries
+#
+#  Copyright 2005-2019 Airbus-EDF-IMACS-ONERA-Phimeca
+#
+
+# Use the following variables to compile and link against otunifsphere:
+#  OTUNIFSPHERE_FOUND          - True if otunifsphere was found on your system
+#  OTUNIFSPHERE_USE_FILE       - The file making otunifsphere usable
+#  OTUNIFSPHERE_DEFINITIONS    - Definitions needed to build with otunifsphere
+#  OTUNIFSPHERE_INCLUDE_DIRS   - List of directories where otunifsphere' header file are
+#  OTUNIFSPHERE_LIBRARY        - Library name
+#  OTUNIFSPHERE_LIBRARIES      - List of libraries to link against
+#  OTUNIFSPHERE_LIBRARY_DIRS   - List of directories containing otunifsphere' libraries
+#  OTUNIFSPHERE_ROOT_DIR       - The base directory of otunifsphere
+#  OTUNIFSPHERE_VERSION_STRING - A human-readable string containing the version
+#  OTUNIFSPHERE_VERSION_MAJOR  - The major version of otunifsphere
+#  OTUNIFSPHERE_VERSION_MINOR  - The minor version of otunifsphere
+#  OTUNIFSPHERE_VERSION_PATCH  - The patch version of otunifsphere
+
+@PACKAGE_INIT@
+
+set ( OTUNIFSPHERE_FOUND 1 )
+set ( OTUNIFSPHERE_USE_FILE     "@PACKAGE_OTUNIFSPHERE_USE_FILE@" )
+
+set ( OTUNIFSPHERE_DEFINITIONS  "@OTUNIFSPHERE_DEFINITIONS@" )
+set_and_check (OTUNIFSPHERE_INCLUDE_DIR  "@PACKAGE_OTUNIFSPHERE_INCLUDE_DIR@")
+set ( OTUNIFSPHERE_INCLUDE_DIRS "@PACKAGE_OTUNIFSPHERE_INCLUDE_DIRS@" )
+set_and_check (OTUNIFSPHERE_LIBRARY      "@OTUNIFSPHERE_LIBRARY@")
+set ( OTUNIFSPHERE_LIBRARIES    "@PACKAGE_OTUNIFSPHERE_LIBRARIES@" )
+set ( OTUNIFSPHERE_LIBRARY_DIRS "@PACKAGE_OTUNIFSPHERE_LIBRARY_DIRS@" )
+set_and_check (OTUNIFSPHERE_ROOT_DIR     "@PACKAGE_OTUNIFSPHERE_ROOT_DIR@")
+
+set ( OTUNIFSPHERE_VERSION_STRING "@OTUNIFSPHERE_VERSION_STRING@" )
+set ( OTUNIFSPHERE_VERSION_MAJOR  "@OTUNIFSPHERE_VERSION_MAJOR@" )
+set ( OTUNIFSPHERE_VERSION_MINOR  "@OTUNIFSPHERE_VERSION_MINOR@" )
+set ( OTUNIFSPHERE_VERSION_PATCH  "@OTUNIFSPHERE_VERSION_PATCH@" )
+
+set (OTUNIFSPHERE_SWIG_INCLUDE_DIRS "@PACKAGE_OTUNIFSPHERE_SWIG_INCLUDE_DIRS@")
+set (OTUNIFSPHERE_PYTHON@PYTHON_VERSION_MAJOR@_MODULE_PATH "@PACKAGE_PYTHON_MODULE_PATH@")
+
+# Our library dependencies (contains definitions for IMPORTED targets)
+include (${CMAKE_CURRENT_LIST_DIR}/otunifsphere-Targets.cmake)

@@ -1,6 +1,6 @@
 //                                               -*- C++ -*-
 /**
- *  @brief MyClassImplementation
+ *  @brief UniformSphereRandomVectorImplementation
  *
  *  Copyright 2005-2019 Airbus-EDF-IMACS-ONERA-Phimeca
  *
@@ -18,34 +18,34 @@
  *  along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#include "ottemplate/MyClassImplementation.hxx"
+#include "otunifsphere/UniformSphereRandomVectorImplementation.hxx"
 #include <openturns/PersistentObjectFactory.hxx>
 
 using namespace OT;
 
-namespace OTTEMPLATE
+namespace OTUNIFSPHERE
 {
 
-CLASSNAMEINIT(MyClassImplementation);
+CLASSNAMEINIT(UniformSphereRandomVectorImplementation);
 
-static Factory<MyClassImplementation> Factory_MyClassImplementation;
+static Factory<UniformSphereRandomVectorImplementation> Factory_UniformSphereRandomVectorImplementation;
 
 
 /* Default constructor */
-MyClassImplementation::MyClassImplementation()
+UniformSphereRandomVectorImplementation::UniformSphereRandomVectorImplementation()
   : PersistentObject()
 {
   // Nothing to do
 }
 
 /* Virtual constructor method */
-MyClassImplementation * MyClassImplementation::clone() const
+UniformSphereRandomVectorImplementation * UniformSphereRandomVectorImplementation::clone() const
 {
-  return new MyClassImplementation(*this);
+  return new UniformSphereRandomVectorImplementation(*this);
 }
 
 /* example of a func that return a point squared. */
-Point MyClassImplementation::square(Point& p) const
+Point UniformSphereRandomVectorImplementation::square(Point& p) const
 {
 
   Point p_out(p.getSize());
@@ -57,24 +57,24 @@ Point MyClassImplementation::square(Point& p) const
 }
 
 /* String converter */
-String MyClassImplementation::__repr__() const
+String UniformSphereRandomVectorImplementation::__repr__() const
 {
   OSS oss;
-  oss << "class=" << MyClassImplementation::GetClassName();
+  oss << "class=" << UniformSphereRandomVectorImplementation::GetClassName();
   return oss;
 }
 
 /* Method save() stores the object through the StorageManager */
-void MyClassImplementation::save(Advocate & adv) const
+void UniformSphereRandomVectorImplementation::save(Advocate & adv) const
 {
   PersistentObject::save( adv );
 }
 
 /* Method load() reloads the object from the StorageManager */
-void MyClassImplementation::load(Advocate & adv)
+void UniformSphereRandomVectorImplementation::load(Advocate & adv)
 {
   PersistentObject::load( adv );
 }
 
 
-} /* namespace OTTEMPLATE */
+} /* namespace OTUNIFSPHERE */

@@ -1,6 +1,6 @@
-// SWIG file ottemplate_module.i
+// SWIG file otunifsphere_module.i
 
-%module(docstring="ottemplate module") ottemplate
+%module(docstring="otunifsphere module") otunifsphere
 
 %{
 #include <openturns/OT.hxx>
@@ -17,8 +17,8 @@
 %import uncertainty_module.i
 
 // The new classes
-%include ottemplate/OTTemplateprivate.hxx
-%include MyClassImplementation.i
-%include MyClass.i
+%include otunifsphere/otunifsphereprivate.hxx
+%include UniformSphereRandomVectorImplementation.i
+%include UniformSphereRandomVector.i
 
 

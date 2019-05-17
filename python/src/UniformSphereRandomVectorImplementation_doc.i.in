@@ -1,0 +1,43 @@
+%define OTUNIFSPHERE_UniformSphereRandomVector_doc
+"UniformSphereRandomVector class.
+
+Examples
+--------
+>>> import otunifsphere
+>>> a = otunifsphere.UniformSphereRandomVector()
+
+Notes
+-----
+Template module class."
+%enddef
+%feature("docstring") OTUNIFSPHERE::UniformSphereRandomVectorImplementation
+OTUNIFSPHERE_UniformSphereRandomVector_doc
+
+// ---------------------------------------------------------------------
+
+%define OTUNIFSPHERE_UniformSphereRandomVector_square_doc
+"Square of a point.
+
+Parameters
+----------
+point : sequence of float 
+    Input point
+
+Returns
+-------
+square : :py:class:`openturns.Point`
+    Square of point
+                  
+Examples
+--------
+>>> import openturns as ot
+>>> import otunifsphere
+>>> a = otunifsphere.UniformSphereRandomVector()
+>>> point = ot.Point([1.0, 2.0, 3.0])
+>>> a.square(point)
+class=Point name=Unnamed dimension=3 values=[1,4,9]"
+%enddef
+%feature("docstring") OTUNIFSPHERE::UniformSphereRandomVectorImplementation::square
+OTUNIFSPHERE_UniformSphereRandomVector_square_doc
+
+

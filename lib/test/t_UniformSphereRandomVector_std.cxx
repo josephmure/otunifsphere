@@ -1,13 +1,13 @@
 #include <iostream>
 
-#include "ottemplate/OTTemplate.hxx"
+#include "otunifsphere/otunifsphere.hxx"
 
 using namespace OT;
-using namespace OTTEMPLATE;
+using namespace OTUNIFSPHERE;
 
 int main(int argc, char **argv)
 {
-  MyClass a;
+  UniformSphereRandomVector a;
   std::cout << a << std::endl;
   return 0;
 }

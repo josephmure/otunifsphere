@@ -1,4 +1,4 @@
-OTTemplate documentation
+otunifsphere documentation
 ========================
 
 User documentation

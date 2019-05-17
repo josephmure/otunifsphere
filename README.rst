@@ -1,10 +1,10 @@
-.. image:: https://travis-ci.org/openturns/ottemplate.svg?branch=master
-    :target: https://travis-ci.org/openturns/ottemplate
+.. image:: https://travis-ci.org/openturns/otunifsphere.svg?branch=master
+    :target: https://travis-ci.org/openturns/otunifsphere
 
-OTTemplate Module
+otunifsphere Module
 =================
 
-OTTemplate is a module for OpenTURNS
+otunifsphere is a module for OpenTURNS
 
 More information can found at http://www.openturns.org
 

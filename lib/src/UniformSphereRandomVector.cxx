@@ -1,6 +1,6 @@
 //                                               -*- C++ -*-
 /**
- *  @brief MyClass
+ *  @brief UniformSphereRandomVector
  *
  *  Copyright 2005-2019 Airbus-EDF-IMACS-ONERA-Phimeca
  *
@@ -18,44 +18,44 @@
  *  along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#include "ottemplate/MyClass.hxx"
-#include "ottemplate/MyClassImplementation.hxx"
+#include "otunifsphere/UniformSphereRandomVector.hxx"
+#include "otunifsphere/UniformSphereRandomVectorImplementation.hxx"
 #include <openturns/PersistentObjectFactory.hxx>
 
 using namespace OT;
 
-namespace OTTEMPLATE
+namespace OTUNIFSPHERE
 {
 
-CLASSNAMEINIT(MyClass);
+CLASSNAMEINIT(UniformSphereRandomVector);
 
 /* Default constructor */
-MyClass::MyClass()
-  : TypedInterfaceObject<MyClassImplementation>(new MyClassImplementation)
+UniformSphereRandomVector::UniformSphereRandomVector()
+  : TypedInterfaceObject<UniformSphereRandomVectorImplementation>(new UniformSphereRandomVectorImplementation)
 {
   // Nothing to do
 }
 
 
-MyClass::MyClass(const MyClassImplementation & implementation)
-  : TypedInterfaceObject<MyClassImplementation>(implementation.clone())
+UniformSphereRandomVector::UniformSphereRandomVector(const UniformSphereRandomVectorImplementation & implementation)
+  : TypedInterfaceObject<UniformSphereRandomVectorImplementation>(implementation.clone())
 {
   // Nothing to do
 }
 
-Point MyClass::square(Point & p) const
+Point UniformSphereRandomVector::square(Point & p) const
 {
   return getImplementation()->square(p);
 }
 
 /* String converter */
-String MyClass::__repr__() const
+String UniformSphereRandomVector::__repr__() const
 {
   OSS oss;
-  oss << "class=" << MyClass::GetClassName()
+  oss << "class=" << UniformSphereRandomVector::GetClassName()
       << " implementation=" << getImplementation()->__repr__();
   return oss;
 }
 
 
-} /* namespace OTTEMPLATE */
+} /* namespace OTUNIFSPHERE */

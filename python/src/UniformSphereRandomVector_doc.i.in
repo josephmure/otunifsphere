@@ -1,0 +1,7 @@
+// UniformSphereRandomVector docstrings are defined in UniformSphereRandomVectorImplementation_doc.i.in
+
+%feature("docstring") OTUNIFSPHERE::UniformSphereRandomVector
+OTUNIFSPHERE_UniformSphereRandomVector_doc
+%feature("docstring") OTUNIFSPHERE::UniformSphereRandomVector::square
+OTUNIFSPHERE_UniformSphereRandomVector_square_doc
+

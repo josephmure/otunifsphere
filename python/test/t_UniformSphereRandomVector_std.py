@@ -2,9 +2,9 @@
 
 from __future__ import print_function
 import openturns as ot
-import ottemplate
+import otunifsphere
 
-a = ottemplate.MyClass()
+a = otunifsphere.UniformSphereRandomVector()
 print(a)
 
 p = ot.Point([2, 3])

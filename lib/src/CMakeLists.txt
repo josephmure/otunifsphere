@@ -2,19 +2,19 @@
 
 ot_add_current_dir_to_include_dirs ()
 
-ot_add_source_file ( MyClass.cxx )
-ot_add_source_file ( MyClassImplementation.cxx )
+ot_add_source_file ( UniformSphereRandomVector.cxx )
+ot_add_source_file ( UniformSphereRandomVectorImplementation.cxx )
 
-ot_install_header_file ( MyClass.hxx )
-ot_install_header_file ( MyClassImplementation.hxx )
+ot_install_header_file ( UniformSphereRandomVector.hxx )
+ot_install_header_file ( UniformSphereRandomVectorImplementation.hxx )
 
 
 include_directories (${INTERNAL_INCLUDE_DIRS})
 
-add_library (ottemplate ${SOURCEFILES})
-set_target_properties (ottemplate PROPERTIES POSITION_INDEPENDENT_CODE ON)
+add_library (otunifsphere ${SOURCEFILES})
+set_target_properties (otunifsphere PROPERTIES POSITION_INDEPENDENT_CODE ON)
 if (BUILD_SHARED_LIBS)
-  set_target_properties (ottemplate PROPERTIES COMPILE_DEFINITIONS "OTTEMPLATE_DLL_EXPORTS")
+  set_target_properties (otunifsphere PROPERTIES COMPILE_DEFINITIONS "OTUNIFSPHERE_DLL_EXPORTS")
 endif ()
 
 if ( NOT DEFINED LIB_VERSION ) 
@@ -23,22 +23,22 @@ endif ()
 if ( NOT DEFINED LIB_SOVERSION ) 
   set ( LIB_SOVERSION 0 )
 endif ()
-set_target_properties ( ottemplate PROPERTIES VERSION ${LIB_VERSION} )
-set_target_properties ( ottemplate PROPERTIES SOVERSION ${LIB_SOVERSION} )
-target_link_libraries (ottemplate ${OPENTURNS_LIBRARY})
+set_target_properties ( otunifsphere PROPERTIES VERSION ${LIB_VERSION} )
+set_target_properties ( otunifsphere PROPERTIES SOVERSION ${LIB_SOVERSION} )
+target_link_libraries (otunifsphere ${OPENTURNS_LIBRARY})
 
 # Add targets to the build-tree export set
-export (TARGETS ottemplate FILE ${PROJECT_BINARY_DIR}/OTTemplate-Targets.cmake)
+export (TARGETS otunifsphere FILE ${PROJECT_BINARY_DIR}/otunifsphere-Targets.cmake)
 
 # Install the export set for use with the install-tree
-install(EXPORT OTTemplate-Targets
-        DESTINATION "${OTTEMPLATE_CONFIG_CMAKE_PATH}"
+install(EXPORT otunifsphere-Targets
+        DESTINATION "${OTUNIFSPHERE_CONFIG_CMAKE_PATH}"
         COMPONENT Development)
 
-install(TARGETS ottemplate
-        EXPORT  OTTemplate-Targets 
+install(TARGETS otunifsphere
+        EXPORT  otunifsphere-Targets 
         RUNTIME DESTINATION bin
-        LIBRARY DESTINATION ${OTTEMPLATE_LIBRARY_PATH}
-        ARCHIVE DESTINATION ${OTTEMPLATE_LIBRARY_PATH}
+        LIBRARY DESTINATION ${OTUNIFSPHERE_LIBRARY_PATH}
+        ARCHIVE DESTINATION ${OTUNIFSPHERE_LIBRARY_PATH}
 )
 
