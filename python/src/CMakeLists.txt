@@ -84,7 +84,6 @@ endmacro ()
 
 ot_add_python_module( ${PACKAGE_NAME} ${PACKAGE_NAME}_module.i 
                       UniformSphereRandomVector.i UniformSphereRandomVector_doc.i.in
-                      UniformSphereRandomVectorImplementation.i UniformSphereRandomVectorImplementation_doc.i.in
                     )
 
 

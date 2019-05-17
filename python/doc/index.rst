@@ -1,5 +1,5 @@
 otunifsphere documentation
-========================
+==========================
 
 User documentation
 ------------------

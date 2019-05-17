@@ -1,7 +1,80 @@
 // UniformSphereRandomVector docstrings are defined in UniformSphereRandomVectorImplementation_doc.i.in
 
 %feature("docstring") OTUNIFSPHERE::UniformSphereRandomVector
-OTUNIFSPHERE_UniformSphereRandomVector_doc
-%feature("docstring") OTUNIFSPHERE::UniformSphereRandomVector::square
-OTUNIFSPHERE_UniformSphereRandomVector_square_doc
+"Discrete compound distribution.
 
+Available constructors:
+    UniformSphereRandomVector(center, radius)
+
+Parameters
+----------
+center : Point
+    Center of the sphere that supports the distribution of the random vector
+
+radius : float :math:`\geq 0`
+    Radius of the sphere that supports the distribution of the random vector
+
+
+Notes
+-----
+Random vector following the Uniform distribution on the sphere with given center and radius.
+
+
+See Also
+--------
+Normal
+
+Examples
+--------
+Obtain a realization of a random vector following the Uniform distribution 
+on the circle with center :math:`(1, 2)` and radius :math: `2.5`.
+
+>>> import openturns as ot
+>>> import otunifsphere as otus
+>>> random_vector = otus.UniformSphereRandomVector(Point(1.0,2.0), 2.5)
+>>> random_vector.getRealization()
+"
+
+// ---------------------------------------------------------------------
+
+%feature("docstring") OTUNIFSPHERE::UniformSphereRandomVector::getCenter
+"Get the center of the sphere supporting the random vector.
+
+Returns
+-------
+center : Point
+    Center of the sphere that supports the distribution of the random vector
+"
+
+// --------------------------------------------------------------------
+
+%feature("docstring") OTUNIFSPHERE::UniformSphereRandomVector::getRadius
+"Get the radius of the sphere supporting the random vector.
+
+Returns
+-------
+radius : float :math:`\geq 0`
+    Radius of the sphere that supports the distribution of the random vector
+"
+
+// ---------------------------------------------------------------------
+
+%feature("docstring") OTUNIFSPHERE::UniformSphereRandomVector::setCenter
+"Set the center of the sphere supporting the random vector.
+
+Parameters
+----------
+center : Point
+    Center of the sphere that supports the distribution of the random vector
+"
+
+// --------------------------------------------------------------------
+
+%feature("docstring") OTUNIFSPHERE::UniformSphereRandomVector::setRadius
+"Set the radius of the sphere supporting the random vector.
+
+Parameters
+----------
+radius : float :math:`\geq 0`
+    Radius of the sphere that supports the distribution of the random vector
+"

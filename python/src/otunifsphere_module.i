@@ -18,7 +18,6 @@
 
 // The new classes
 %include otunifsphere/otunifsphereprivate.hxx
-%include UniformSphereRandomVectorImplementation.i
 %include UniformSphereRandomVector.i
 
 
