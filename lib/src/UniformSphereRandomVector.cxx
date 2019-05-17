@@ -18,8 +18,10 @@
  *  along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#include "otunifsphere/UniformSphereRandomVector.hxx"
 #include <openturns/PersistentObjectFactory.hxx>
+#include "otunifsphere/UniformSphereRandomVector.hxx"
+#include "openturns/DistFunc.hxx"
+#include "openturns/Description.hxx"
 
 using namespace OT;
 
@@ -34,19 +36,22 @@ static Factory<UniformSphereRandomVector> Factory_UniformSphereRandomVector;
 /* Default constructor */
 UniformSphereRandomVector::UniformSphereRandomVector()
   : RandomVectorImplementation()
-   , center_(1)
-   , radius_(1.0)
+   , center_()
+   , radius_()
 {
-  // Nothing to do
+  setRadius(1.0);
+  setCenter(Point(1, 0.0));
 }
 
 /* Useful constructor */
 UniformSphereRandomVector::UniformSphereRandomVector(const Point & center, const Scalar radius)
   : RandomVectorImplementation()
-    , center_(center)
-    , radius_(radius)
+    , center_()
+    , radius_()
 {
-  // Nothing to do
+  if(!(radius >= 0)) throw InvalidArgumentException(HERE) << "Error: the radius must be nonnegative and is instead " << radius ;
+  setRadius(radius);
+  setCenter(center);
 }
 
 /* Virtual constructor method */
@@ -55,13 +60,45 @@ UniformSphereRandomVector * UniformSphereRandomVector::clone() const
   return new UniformSphereRandomVector(*this);
 }
 
+/* Get dimension */
+UnsignedInteger UniformSphereRandomVector::getDimension() const
+{
+  return center_.getDimension();
+}
+
 /* Realization sampler */
 Point UniformSphereRandomVector::getRealization() const
 {
-  realization = DistFunc::rNormal(center_.getDimension());
+  Point realization(DistFunc::rNormal(center_.getDimension()));
   realization *= radius_ / realization.norm();
   realization += center_;
   return realization;
+}
+
+/* Get the center of the sphere*/
+Point UniformSphereRandomVector::getCenter() const
+{
+  return center_;
+}
+
+/* Set the center of the sphere */
+void UniformSphereRandomVector::setCenter(const Point & center)
+{  
+  center_ = center;
+  setDescription(Description::BuildDefault(getDimension()));
+
+}
+
+/* Get the radius of the sphere*/
+Scalar UniformSphereRandomVector::getRadius() const
+{
+  return radius_;
+}
+
+/* Set the radius of the sphere */
+void UniformSphereRandomVector::setRadius(const Scalar radius)
+{
+  radius_ = radius;
 }
 
 /* String converter */

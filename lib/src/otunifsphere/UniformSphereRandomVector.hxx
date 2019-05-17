@@ -21,7 +21,7 @@
 #ifndef OTUNIFSPHERE_UNIFORMSPHERERANDOMVECTORIMPLEMENTATION_HXX
 #define OTUNIFSPHERE_UNIFORMSPHERERANDOMVECTORIMPLEMENTATION_HXX
 
-#include <openturns/PersistentObject.hxx>
+#include <openturns/RandomVectorImplementation.hxx>
 #include <openturns/StorageManager.hxx>
 #include <openturns/Point.hxx>
 #include "otunifsphere/otunifsphereprivate.hxx"
@@ -30,27 +30,42 @@ namespace OTUNIFSPHERE
 {
 
 /**
- * @class UniformSphereRandomVectorImplementation
+ * @class UniformSphereRandomVector
  *
  * UniformSphereRandomVectorImplementation is some uniformsphererandomvector type to illustrate how to add some classes in OpenTURNS
  */
-class OTUNIFSPHERE_API UniformSphereRandomVectorImplementation
-  : public OT::PersistentObject
+class OTUNIFSPHERE_API UniformSphereRandomVector
+  : public OT::RandomVectorImplementation
 {
   CLASSNAME;
 
 public:
   /** Default constructor */
-  UniformSphereRandomVectorImplementation();
+  UniformSphereRandomVector();
 
   /* Useful constructor */
-  UniformSphereRandomVector(const Point & center, const Scalar radius);
+  UniformSphereRandomVector(const OT::Point & center, const OT::Scalar radius);
 
   /** Virtual constructor method */
-  UniformSphereRandomVectorImplementation * clone() const;
+  UniformSphereRandomVector * clone() const;
+
+  /** Get dimension */
+  OT::UnsignedInteger getDimension() const;
 
   /** Realization sampler */
-  Point getRealization() const;
+  OT::Point getRealization() const;
+
+  /** Get the center of the sphere*/
+  OT::Point getCenter() const;
+
+  /** Set the center of the sphere */
+  void setCenter(const OT::Point & center);
+
+  /** Get the radius of the sphere*/
+  OT::Scalar getRadius() const;
+
+  /** Set the radius of the sphere */
+  void setRadius(const OT::Scalar radius);
 
   /** String converter */
   OT::String __repr__() const;
@@ -63,7 +78,10 @@ public:
 
 private:
 
-}; /* class UniformSphereRandomVectorImplementation */
+  OT::Point center_;
+  OT::Scalar radius_;
+
+}; /* class UniformSphereRandomVector */
 
 } /* namespace OTUNIFSPHERE */
 
