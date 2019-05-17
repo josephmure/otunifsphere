@@ -43,11 +43,14 @@ public:
   /** Default constructor */
   UniformSphereRandomVectorImplementation();
 
+  /* Useful constructor */
+  UniformSphereRandomVector(const Point & center, const Scalar radius);
+
   /** Virtual constructor method */
   UniformSphereRandomVectorImplementation * clone() const;
 
-  /** example of a func that return a point squared. **/
-  OT::Point square(OT::Point& p) const;
+  /** Realization sampler */
+  Point getRealization() const;
 
   /** String converter */
   OT::String __repr__() const;

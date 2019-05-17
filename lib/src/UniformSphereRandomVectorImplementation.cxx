@@ -1,6 +1,6 @@
 //                                               -*- C++ -*-
 /**
- *  @brief UniformSphereRandomVectorImplementation
+ *  @brief UniformSphereRandomVector
  *
  *  Copyright 2005-2019 Airbus-EDF-IMACS-ONERA-Phimeca
  *
@@ -18,7 +18,7 @@
  *  along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#include "otunifsphere/UniformSphereRandomVectorImplementation.hxx"
+#include "otunifsphere/UniformSphereRandomVector.hxx"
 #include <openturns/PersistentObjectFactory.hxx>
 
 using namespace OT;
@@ -26,54 +26,67 @@ using namespace OT;
 namespace OTUNIFSPHERE
 {
 
-CLASSNAMEINIT(UniformSphereRandomVectorImplementation);
+CLASSNAMEINIT(UniformSphereRandomVector);
 
-static Factory<UniformSphereRandomVectorImplementation> Factory_UniformSphereRandomVectorImplementation;
+static Factory<UniformSphereRandomVector> Factory_UniformSphereRandomVector;
 
 
 /* Default constructor */
-UniformSphereRandomVectorImplementation::UniformSphereRandomVectorImplementation()
-  : PersistentObject()
+UniformSphereRandomVector::UniformSphereRandomVector()
+  : RandomVectorImplementation()
+   , center_(1)
+   , radius_(1.0)
+{
+  // Nothing to do
+}
+
+/* Useful constructor */
+UniformSphereRandomVector::UniformSphereRandomVector(const Point & center, const Scalar radius)
+  : RandomVectorImplementation()
+    , center_(center)
+    , radius_(radius)
 {
   // Nothing to do
 }
 
 /* Virtual constructor method */
-UniformSphereRandomVectorImplementation * UniformSphereRandomVectorImplementation::clone() const
+UniformSphereRandomVector * UniformSphereRandomVector::clone() const
 {
-  return new UniformSphereRandomVectorImplementation(*this);
+  return new UniformSphereRandomVector(*this);
 }
 
-/* example of a func that return a point squared. */
-Point UniformSphereRandomVectorImplementation::square(Point& p) const
+/* Realization sampler */
+Point UniformSphereRandomVector::getRealization() const
 {
-
-  Point p_out(p.getSize());
-  for(UnsignedInteger i = 0; i < p.getSize(); ++ i)
-  {
-    p_out[i] = p[i] * p[i];
-  }
-  return p_out;
+  realization = DistFunc::rNormal(center_.getDimension());
+  realization *= radius_ / realization.norm();
+  realization += center_;
+  return realization;
 }
 
 /* String converter */
-String UniformSphereRandomVectorImplementation::__repr__() const
+String UniformSphereRandomVector::__repr__() const
 {
   OSS oss;
-  oss << "class=" << UniformSphereRandomVectorImplementation::GetClassName();
+  oss << "class=" << UniformSphereRandomVector::GetClassName() << "center= " << center_ << " radius= " << radius_;
   return oss;
 }
 
 /* Method save() stores the object through the StorageManager */
-void UniformSphereRandomVectorImplementation::save(Advocate & adv) const
+void UniformSphereRandomVector::save(Advocate & adv) const
 {
-  PersistentObject::save( adv );
+  RandomVectorImplementation::save( adv );
+  adv.saveAttribute("center_", center_);
+  adv.saveAttribute("radius_", radius_);
 }
 
+
 /* Method load() reloads the object from the StorageManager */
-void UniformSphereRandomVectorImplementation::load(Advocate & adv)
+void UniformSphereRandomVector::load(Advocate & adv)
 {
-  PersistentObject::load( adv );
+  RandomVectorImplementation::load( adv );
+  adv.loadAttribute("center_", center_);
+  adv.loadAttribute("radius_", radius_);
 }
 
 
