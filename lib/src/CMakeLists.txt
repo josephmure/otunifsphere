@@ -3,10 +3,8 @@
 ot_add_current_dir_to_include_dirs ()
 
 ot_add_source_file ( UniformSphereRandomVector.cxx )
-ot_add_source_file ( UniformSphereRandomVectorImplementation.cxx )
 
 ot_install_header_file ( UniformSphereRandomVector.hxx )
-ot_install_header_file ( UniformSphereRandomVectorImplementation.hxx )
 
 
 include_directories (${INTERNAL_INCLUDE_DIRS})
